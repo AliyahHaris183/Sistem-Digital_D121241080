@@ -1,0 +1,58 @@
+// Andi Nurul Aliyah Haris D121241080
+
+#include <stdio.h>
+#include <stdlib.h>  // Untuk strtol
+#include <string.h>  // Untuk strlen
+
+int main() {
+    char inputStr[10];  // Array untuk menyimpan input sebagai string
+    int input;  // Variabel untuk menyimpan nilai integer yang dikonversi dari string
+
+    printf("\n");  // Print a new line
+    printf("Masukkan input XYZ: ");  // Prompt the user to enter input
+
+    // Membaca input menggunakan fgets
+    fgets(inputStr, sizeof(inputStr), stdin);
+
+    // Mengonversi string input menjadi integer, mengabaikan karakter newline '\n' yang mungkin terbaca oleh fgets
+    if (inputStr[strlen(inputStr) - 1] == '\n') {
+        inputStr[strlen(inputStr) - 1] = '\0';  // Menghapus newline jika ada
+    }
+
+    // Mengonversi input string (biner) menjadi integer
+    input = strtol(inputStr, NULL, 2);  // strtol dengan basis 2 untuk biner
+
+    printf("\n");  // Print a new line
+    printf("Output ABCDEFG: ");  // Print the label for the output
+
+    // Mengecek nilai input dan mencetak output yang sesuai
+    if (input == 0) {
+        printf("1111110\n");  // If input is 000, print "1111110"
+    }
+    else if (input == 1) {
+        printf("0110000\n");  // If input is 001, print "0110000"
+    }
+    else if (input == 2) {
+        printf("1101101\n");  // If input is 010, print "1101101"
+    }
+    else if (input == 3) {
+        printf("1111001\n");  // If input is 011, print "1111001"
+    }
+    else if (input == 4) {
+        printf("0110011\n");  // If input is 100, print "0110011"
+    }
+    else if (input == 5) {
+        printf("1011011\n");  // If input is 101, print "1011011"
+    }
+    else if (input == 6) {
+        printf("1011111\n");  // If input is 110, print "1011111"
+    }
+    else if (input == 7) {
+        printf("1110000\n");  // If input is 111, print "1110000"
+    }
+    else {
+        printf("Error.\n");  // If input doesn't match any of the cases, print "Error."
+    }
+
+    return 0;  // End of the program and return 0 indicating successful execution
+}
